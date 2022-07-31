@@ -1,14 +1,14 @@
 # STYLE ***************************************************************************
 # content = assignment (Python Advanced)
 #
-# date    = 2022-01-07
-# email   = contact@alexanderrichtertd.com
+# date    = 2022-30-07
+# email   = lucianocequinel@gmail.com
 #**********************************************************************************
 
 
 # COMMENT --------------------------------------------------
 # Not optimal
-def set_color(ctrlList=None, color=None):
+def set_color(ctrlList = None, color = None):
 
     for ctrlName in ctrlList:
         try:

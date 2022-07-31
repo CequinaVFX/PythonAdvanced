@@ -1,3 +1,19 @@
+#*************************************************************************
+# content: UI to load an asset
+# 
+# version: 1.3.0
+# date: July 31 2022
+#
+# how to: execute_the_class_ar_load()
+# dependencies: arUtil, arNotice, libLog, libData, libFunc
+# todos: add ABC files in extension list
+#
+# license: Framestore internal only
+# author: Luciano Cequinel <lucianocequinel@gmail.com>
+#
+#*************************************************************************
+
+
 import os
 import re
 import sys
@@ -6,15 +22,15 @@ import getpass
 import datetime
 import subprocess
 
+from Qt import QtWidgets, QtGui, QtCore, QtCompat
+
 import libLog
 import libData
 import libFunc
-from tank import Tank
-
-from Qt import QtWidgets, QtGui, QtCore, QtCompat
-
 import arNotice
+from tank import Tank
 from arUtil import ArUtil
+
 
 #################################
 # global variables
@@ -50,7 +66,7 @@ class ArLoad(ArUtil):
 
 
     #########################
-    # press events
+    # PRESS EVENTS
 
     def press_btnAccept(self):
         
@@ -75,7 +91,7 @@ class ArLoad(ArUtil):
 
 
     #########################
-    # change events
+    # CHANGE EVENTS
 
     def change_lstScene(self):
 
@@ -140,7 +156,7 @@ class ArLoad(ArUtil):
 
 
     #########################
-    # fill UI fields
+    # SETUP EVENTS
 
     def fill_meta(self):
 
@@ -155,6 +171,12 @@ class ArLoad(ArUtil):
         self.wgPreview.lblTitle.setText('')
         self.wgPreview.lblDate.setText('')
 
+# END OF SCRIPT
+#########################
+
+
+#########################
+# MAIN FUNCTION
 
 def execute_the_class_ar_load():
     global main_widget
