@@ -62,9 +62,12 @@ def getFrameUI():
 
     if len (validNodes) > 0:
 
-        newFrame = (nuke.getInput('frame' '%s' % nuke.frame()))
+        newFrame = (nuke.getInput('set frame to', '%s' % str(nuke.frame())))
 
-        if newFrame.isdigit():
+        if newFrame == None:
+            return 
+
+        elif newFrame.isdigit():
             for node in validNodes:
                 changeFrame(newFrame, node)
         else:
