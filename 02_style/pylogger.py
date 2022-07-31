@@ -13,32 +13,32 @@ def findCaller(self):
     file name, line number and function name.
     """
 
-    f = currentframe()
+    frame = currentframe()
 
     #On some versions of IronPython, currentframe() returns None if
     #IronPython isn't run with -X:Frames.
-    if f is not None:
-        f = f.f_back
+    if frame is not None:
+        frame = frame.f_back
 
-    rv = "(unknown file)",
+    relativeValue = "(unknown file)",
          0,
          "(unknown function)"
 
-    while hasattr(f, "f_code"):
+    while hasattr(frame, "f_code"):
 
-        co = f.f_code
-        filename = os.path.normcase(co.co_filename)
+        code = frame.f_code
+        filename = os.path.normcase(code.co_filename)
 
         if filename == _srcfile:
-            f = f.f_back
+            frame = frame.f_back
             continue
 
-        rv = (co.co_filename,
-              f.f_lineno,
-              co.co_name)
+        relativeValue = (code.co_filename,
+              frame.f_lineno,
+              code.co_name)
 
         break
 
-    return rv
+    return (relativeValue)
 
 # How can we make this code better?
